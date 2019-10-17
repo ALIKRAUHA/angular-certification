@@ -1,0 +1,14 @@
+<h1 class="col-sm-6 offset-sm-3 text-center">Nouveau post</h1>
+<div class="col-sm-6 offset-sm-3">
+    <form [formGroup]="newPostForm" (ngSubmit)="createPost()">
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="content">Contenu</label>
+        <textarea type="text" id="content" class="form-control" formControlName="content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="newPostForm.invalid">Soumettre</button>
+    </form>
+  </div>

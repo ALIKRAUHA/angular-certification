@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PostService } from './services/post.service';
 
 export interface Post {
   title: string;
@@ -12,8 +13,9 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'blog';
+export class AppComponent implements OnInit {
+
+  constructor(private postService: PostService) {}
   postArray: Post[] = [
     {
       title: "Mon premier post",
@@ -34,4 +36,16 @@ export class AppComponent {
       created_at: new Date()
     }
   ];
+  title = 'blog';
+
+  ngOnInit(): void {
+    this.postArray.forEach(post => {
+      this.postService.postPost(post);
+    });
+
+/*     this.postService.postsSubject.subscribe((posts) => {
+      this.postArray = posts;
+    }); */
+  }
+
 }

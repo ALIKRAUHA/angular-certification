@@ -1,2 +1,6 @@
-<app-post-list-component [postList]="postArray"></app-post-list-component>
+<mat-toolbar>
+  <a class="col-md-1 text-center" [routerLink]="['posts']">Liste des posts</a>
+  <a class="col-md-1 text-center" [routerLink]="['new']">Ajouter post</a>
+</mat-toolbar>
 
+<router-outlet></router-outlet>
